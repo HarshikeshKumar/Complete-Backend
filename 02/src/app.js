@@ -24,4 +24,15 @@ app.get("/notes", (req, res) => {
   });
 });
 
+// DELETE Request.....................
+app.delete("/notes/:index", (req, res) => {
+  const index = req.params.index;
+  delete notes[index];
+
+  // Frontend se rasponse server pe ja raha hai...
+  res.status(200).json({
+    message: "Note Delete Successfully",
+  });
+});
+
 module.exports = app;
